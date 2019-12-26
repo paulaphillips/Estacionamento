@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ import com.gerenciador.estacionamento.model.Veiculo;
 import com.gerenciador.estacionamento.repository.VeiculoRepository;
 
 @RestController
-@RequestMapping("/veiculo")
+@RequestMapping(path="/veiculo",produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 public class VeiculoController {
 
 	@Autowired

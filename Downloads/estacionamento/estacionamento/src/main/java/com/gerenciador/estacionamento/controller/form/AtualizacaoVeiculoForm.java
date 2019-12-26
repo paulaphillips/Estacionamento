@@ -1,14 +1,9 @@
 package com.gerenciador.estacionamento.controller.form;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.gerenciador.estacionamento.model.Empresa;
 import com.gerenciador.estacionamento.model.Veiculo;
-import com.gerenciador.estacionamento.repository.EmpresaRepository;
 import com.gerenciador.estacionamento.repository.VeiculoRepository;
 
 public class AtualizacaoVeiculoForm {

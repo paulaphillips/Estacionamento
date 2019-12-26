@@ -1,15 +1,14 @@
 package com.gerenciador.estacionamento.controller;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,11 +26,18 @@ import com.gerenciador.estacionamento.model.Empresa;
 import com.gerenciador.estacionamento.repository.EmpresaRepository;
 
 @RestController
-@RequestMapping("/empresa")
+@RequestMapping(path="/empresa",produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 public class EmpresaController {
 
 	@Autowired
 	private EmpresaRepository empresaRep;
+	
+	
+	@GetMapping("/{id}")
+	public Optional<Empresa> listar(@PathVariable Long id) {
+		Optional<Empresa> empresas = empresaRep.findById(id);
+		return empresas;
+	}
 	
 	@PostMapping
 	@Transactional
@@ -42,11 +48,6 @@ public class EmpresaController {
 		return ResponseEntity.created(uri).body(new EmpresaDto(empresa));
 	}
 	
-	@GetMapping("/{id}")
-	public Optional<Empresa> listar(@PathVariable Long id) {
-		Optional<Empresa> empresas = empresaRep.findById(id);
-		return empresas;
-	}
 	
 	@DeleteMapping("/{id}")
 	@Transactional
