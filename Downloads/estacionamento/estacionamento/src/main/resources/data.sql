@@ -1,0 +1,2 @@
+insert into EMPRESA (nome, cnpj,endereco,telefone, qtd_vagas_carros,qtd_vagas_motos) values ('Paula', '5485452', 'rua 1','32379195',2,1)
+insert into EMPRESA (nome, cnpj,endereco,telefone, qtd_vagas_carros,qtd_vagas_motos) values ('Vinicius', '323232323', 'rua 2','9852653596',5,9)
