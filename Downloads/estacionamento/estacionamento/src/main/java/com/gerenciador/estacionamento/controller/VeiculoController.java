@@ -23,6 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.gerenciador.estacionamento.controller.dto.VeiculoDto;
 import com.gerenciador.estacionamento.controller.form.AtualizacaoVeiculoForm;
 import com.gerenciador.estacionamento.controller.form.VeiculoForm;
+import com.gerenciador.estacionamento.model.Empresa;
 import com.gerenciador.estacionamento.model.Veiculo;
 import com.gerenciador.estacionamento.repository.VeiculoRepository;
 
@@ -36,6 +37,12 @@ public class VeiculoController {
 	@GetMapping("/{id}")
 	public Optional<Veiculo> listar(@PathVariable Long id) {
 		Optional<Veiculo> veiculos = veiculoRep.findById(id);
+		return veiculos;
+	}
+	
+	@GetMapping("/")
+	public List<Veiculo> listarTodos() {
+		List<Veiculo> veiculos = veiculoRep.findAll();
 		return veiculos;
 	}
 	
