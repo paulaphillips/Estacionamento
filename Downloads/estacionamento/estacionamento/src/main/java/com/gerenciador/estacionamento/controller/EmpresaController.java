@@ -1,6 +1,7 @@
 package com.gerenciador.estacionamento.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -36,6 +37,12 @@ public class EmpresaController {
 	@GetMapping("/{id}")
 	public Optional<Empresa> listar(@PathVariable Long id) {
 		Optional<Empresa> empresas = empresaRep.findById(id);
+		return empresas;
+	}
+	
+	@GetMapping("/")
+	public List<Empresa> listarTodos() {
+		List<Empresa> empresas = empresaRep.findAll();
 		return empresas;
 	}
 	
